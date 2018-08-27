@@ -1,0 +1,156 @@
+{
+	"info": {
+		"_postman_id": "0e0b97e3-d7cf-4999-8362-6aa57b73669d",
+		"name": "Campaigns Service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Meta",
+			"item": [
+				{
+					"name": "Uptime",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "17c8d7ce-2ff0-4999-bf4a-c37d5a1a5b37",
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status Code is correct (200)\"] = responseCode.code == '200';",
+									"",
+									"tests[\"upTime is not null\"] = JSON.parse(responseBody).upTime !== null;"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{BaseURL}}/meta/uptime",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"meta",
+								"uptime"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Healthcheck",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f908df39-48d0-4940-84d4-4f7f9c1e7c48",
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status Code is correct\"] = responseCode.code == '200';",
+									"",
+									"tests[\"Healthcheck is successful\"] = JSON.parse(responseBody).success;"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{BaseURL}}/meta/healthcheck",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"meta",
+								"healthcheck"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Version",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "49560777-68d9-4d28-ab95-ca4b203dd714",
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status Code is correct\"] = responseCode.code == '200';"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{BaseURL}}/meta/version",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"meta",
+								"version"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ThrowException",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "9cda106f-ec7a-4818-95d3-d8fcb93d6050",
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status Code is correct\"] = responseCode.code == '200';",
+									"",
+									"tests[\"Throw Exception is successful\"] = JSON.parse(responseBody).success;"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{BaseURL}}/meta/throwexception",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"meta",
+								"throwexception"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
